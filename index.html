@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyberpunk Page</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="banner">
+    <!-- Banner content here -->
+    <h1>Cyberpunk Page</h1>
+</header>
+
+<main class="content">
+    <!-- Main content area -->
+    <article>
+        <h2>Main Content</h2>
+        <p>This is the main content area.</p>
+    </article>
+</main>
+
+<aside class="sidebar">
+    <!-- Sidebar content here -->
+    <h2>Sidebar</h2>
+    <p>This is the sidebar.</p>
+</aside>
+
+<footer class="footer">
+    <!-- Footer content here -->
+    <div class="footer-info">
+        <p>Name: Your Name</p>
+        <p>Address: Your Address</p>
+        <p>Date: <span id="currentDate"></span></p>
+    </div>
+</footer>
+
+<script>
+    // JavaScript to display current date
+    const currentDate = new Date();
+    document.getElementById("currentDate").textContent = currentDate.toDateString();
+</script>
+
+</body>
+</html>
+
