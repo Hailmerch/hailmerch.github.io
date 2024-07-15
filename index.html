@@ -6,29 +6,30 @@
 <title>Cyberpunk Page</title>
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="night-theme">
 <header class="banner">
     <!-- Banner content here -->
     <h1>Cyberpunk Page</h1>
 </header>
 
-<main class="content">
-    <!-- Main content area -->
-    <article>
-        <h2>Main Content</h2>
-        <p>Umbrella octopus waltzes through the blueberry nebula, serenading the lost teacups. Quantum zucchini echoes in the labyrinth of whispering marshmallows. Flamingo astronauts debate the ethics of moon cheese cultivation while neon giraffes compose symphonies for invisible cacti. Electric clouds sprinkle tangerine dreams over the kaleidoscope horizon.</p>
-        <p>Chocolate rivers meander through the velvet jungle where time-traveling crickets write poetry on the wings of iridescent butterflies. Jazz-playing mushrooms host a carnival of forgotten clocks, each tick-tock a melody of stardust. Snowflakes made of laughter pirouette in the galaxy's ballet, and rubber ducks philosophize about the meaning of quarks.</p>
-        <p>Balloons made of giggles float past castles woven from sunlight and shadows, guarded by dragons who sneeze confetti. Meanwhile, the echo of a thousand silent trumpets heralds the arrival of a rainbow caravan, led by a wise old pineapple who speaks in riddles.</p>
-        <p>In the meadow of endless mirth, pixies paint the air with invisible brushes, crafting stories that only the wind can read. A choir of sentient tulips sings lullabies to the passing comets, each note a fragment of a dream from a distant star.</p>
-        <p>Through the prism of infinity, a cat made of moonbeams chases its tail, leaving trails of cosmic dust. The universe smiles, its heart beating to the rhythm of the dancing atoms, each one a world of possibility, each moment a tapestry of surreal wonder.</p>
-    </article>
-</main>
+<div class="main-container">
+    <main class="content">
+        <!-- Main content area -->
+        <article id="mainContent">
+            <!-- Content will be inserted here dynamically -->
+        </article>
+    </main>
 
-<aside class="sidebar">
-    <!-- Sidebar content here -->
-    <h2>Sidebar</h2>
-    <p>This is the sidebar.</p>
-</aside>
+    <aside class="sidebar">
+        <!-- Sidebar content here -->
+        <h2>Sidebar</h2>
+        <ul>
+            <li><a href="#" onclick="loadText('text1.html')">Text 1</a></li>
+            <li><a href="#" onclick="loadText('text2.html')">Text 2</a></li>
+            <li><a href="#" onclick="loadText('text3.html')">Text 3</a></li>
+        </ul>
+    </aside>
+</div>
 
 <footer class="footer">
     <!-- Footer content here -->
@@ -39,10 +40,32 @@
     </div>
 </footer>
 
+<!-- Floating button for theme toggle -->
+<button id="themeToggleBtn" onclick="toggleTheme()">Toggle Theme</button>
+
 <script>
     // JavaScript to display current date
     const currentDate = new Date();
     document.getElementById("currentDate").textContent = currentDate.toDateString();
+
+    // Function to load text into the main content area from an HTML file
+    function loadText(fileName) {
+        fetch(fileName)
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("mainContent").innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error loading the file:', error);
+                document.getElementById("mainContent").innerHTML = '<p>Error loading content.</p>';
+            });
+    }
+
+    // Function to toggle between themes
+    function toggleTheme() {
+        document.body.classList.toggle('day-theme');
+        document.body.classList.toggle('night-theme');
+    }
 </script>
 
 </body>
