@@ -1,9 +1,18 @@
 /* Cyberpunk color scheme */
 body {
-    background-color: #0a0e14;
-    color: #b3b3b3;
     font-family: Arial, sans-serif;
     margin: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.night-theme {
+    background-color: #0a0e14;
+    color: #b3b3b3;
+}
+
+.day-theme {
+    background-color: #e0e0e0;
+    color: #333;
 }
 
 .banner {
@@ -12,7 +21,13 @@ body {
     text-align: center;
 }
 
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .content {
+    flex: 1;
     padding: 20px;
 }
 
@@ -20,7 +35,6 @@ body {
     background-color: #08111f;
     color: #b3b3b3;
     padding: 20px;
-    float: right;
     width: 25%;
 }
 
@@ -29,12 +43,30 @@ body {
     color: #b3b3b3;
     padding: 20px;
     text-align: center;
+    clear: both;
 }
 
 @media (max-width: 768px) {
     .sidebar {
-        float: none;
         width: 100%;
     }
 }
 
+/* Floating button */
+#themeToggleBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #ff007f;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+}
+
+#themeToggleBtn:hover {
+    background-color: #ff3399;
+}
